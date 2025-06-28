@@ -15,7 +15,7 @@ export const projectsData: Project[] = [
         imageAlt: "Capture d'écran de la plateforme OnlineTravel",
         imageWidth: 1920,
         imageHeight: 1080,
-        repositoriesLink: "https://github.com/votre-utilisateur/OnlineTravel",
+        repositoriesLink: "https://github.com/Lovaxcoding/OnlineTravel",
         liveDemoLink: "https://demo.onlinetravel.com",
         stars: 3,
         technos: ['JavaScript', 'React', 'Node.js', 'Express', 'MongoDB'],

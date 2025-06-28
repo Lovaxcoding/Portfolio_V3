@@ -39,7 +39,7 @@ const links = [
 
 export default function FooterSection() {
     return (
-        <footer className="border-t bg-background pt-20"> {/* border-t plutôt que border-b, bg-background directement */}
+        <footer className="border-t bg-background pt-20" id='contact'> {/* border-t plutôt que border-b, bg-background directement */}
             <div className="mb-8 md:mb-12">
                 <div className="mx-auto flex max-w-5xl flex-wrap items-end justify-between gap-6 px-6 pb-6">
                     {/* Votre Logo ou nom de marque */}

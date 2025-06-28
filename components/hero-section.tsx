@@ -12,6 +12,7 @@ import ProjectSection from "./projetSection";
 import { projectsData } from "./data/project";
 import FAQsSection from "./faqsection";
 import FooterSection from "./footerSection";
+import { TypewriterEffect } from "./typewritereffect";
 
 const transitionVariants = {
   item: {
@@ -79,7 +80,7 @@ export default function HeroSection() {
               className="absolute inset-0 -z-20"
             >
               <Image
-                src="https://tse1.mm.bing.net/th/id/OIP.DVZjoXsb5p1HtFIkoYNtFAHaEU?r=0&rs=1&pid=ImgDetMain" // Vous pouvez changer cette image pour quelque chose de plus "techy" ou abstrait si vous le souhaitez
+                src="/Fond.jpg" // Vous pouvez changer cette image pour quelque chose de plus "techy" ou abstrait si vous le souhaitez
                 alt="Background abstrait"
                 className="absolute inset-x-0 top-56 -z-20 hidden lg:top-32 dark:block"
                 width="3276"
@@ -94,7 +95,7 @@ export default function HeroSection() {
                 {/* Lien de bandeau d'introduction - Peut être un message de bienvenue ou une mise à jour */}
                 <AnimatedGroup variants={transitionVariants}>
                   <Link
-                    href="#a-propos" // Lien vers une section "À propos" ou "Mon parcours"
+                    href="#projets" // Lien vers une section "À propos" ou "Mon parcours"
                     className="hover:bg-background dark:hover:border-t-border bg-muted group mx-auto flex w-fit items-center gap-4 rounded-full border p-1 pl-4 shadow-md shadow-zinc-950/5 transition-colors duration-300 dark:border-t-white/5 dark:shadow-zinc-950"
                   >
                     <span className="text-foreground text-sm">
@@ -123,14 +124,28 @@ export default function HeroSection() {
                 >
                   Lovasoa Nantenaina
                 </TextEffect>
-                <TextEffect
-                  preset="fade-in-blur"
-                  speedSegment={0.3}
-                  as="h2" // Ajout d'un h2 pour votre rôle
-                  className="mt-4 text-balance text-4xl md:text-5xl xl:text-[4rem] text-primary"
-                >
-                  Développeur Fullstack
-                </TextEffect>
+                <h1 className="text-balance text-4xl md:text-5xl xl:text-[4rem] font-bold text-primary mb-4">
+                  
+                </h1>
+
+                <TypewriterEffect
+                  words={[
+                    "Conception d'architecture web",
+                    "Designer web",
+                    "Concepteur et intégrateur UI/UX",
+                    "Intégrateur de base de données",
+                    "Administration système réseaux",
+                    "Assurance qualité et testeur",
+                    "Développeur Fullstack",
+                    "Développeur d'application Mobile",
+                    "Maintenantce et support technique",
+                  ]}
+                  speed={70} // Vitesse de frappe (ms par caractère)
+                  pauseBetweenWords={2000} // Pause entre chaque mot (ms)
+                  loop={true} // Recommence la séquence
+                  className="mt-4 text-balance text-2xl md:text-3xl xl:text-[2.5rem] text-foreground/80" // Style pour le texte tapé
+                  cursorClassName="bg-primary" // Couleur du curseur
+                />
 
                 {/* Description - Votre proposition de valeur ou résumé */}
                 <TextEffect

@@ -49,7 +49,7 @@ export default function ProjectSection({
   qualities,
 }: Project) {
   return (
-    <section className="overflow-hidden py-16 md:py-32">
+    <section className="overflow-hidden py-16 md:py-32" id="projects">
       <div className="mx-auto max-w-5xl space-y-8 px-6 md:space-y-12">
         {/* Section Titre et Description */}
         <div className="relative z-10 max-w-2xl mx-auto text-center">

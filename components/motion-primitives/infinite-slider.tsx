@@ -14,8 +14,8 @@ interface InfiniteSliderProps {
 
 export function InfiniteSlider({
     children,
-    speed = 50,
-    speedOnHover = 20,
+    speed = 180,
+    speedOnHover = 160,
     gap = 0
 }: InfiniteSliderProps) {
     const sliderRef = useRef<HTMLDivElement>(null);
