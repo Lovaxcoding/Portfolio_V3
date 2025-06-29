@@ -10,13 +10,15 @@ interface InfiniteSliderProps {
     speed?: number;
     speedOnHover?: number;
     gap?: number;
+    direction?: 'left' | 'right';
 }
 
 export function InfiniteSlider({
     children,
     speed = 180,
     speedOnHover = 160,
-    gap = 0
+    gap = 0,
+    direction = 'left', // Ajout d'une prop pour la direction, par défaut 'left'
 }: InfiniteSliderProps) {
     const sliderRef = useRef<HTMLDivElement>(null);
     const controls = useAnimation(); // <-- Laissez TypeScript inférer le type ici
