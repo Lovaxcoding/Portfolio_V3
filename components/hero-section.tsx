@@ -13,6 +13,7 @@ import { projectsData } from "./data/project";
 import FAQsSection from "./faqsection";
 import FooterSection from "./footerSection";
 import { TypewriterEffect } from "./typewritereffect";
+import ProjectList from "./projectList";
 
 const transitionVariants = {
   item: {
@@ -256,12 +257,7 @@ export default function HeroSection() {
         <TechStackLogos />
         <Qualities />
         {/* Boucle pour afficher chaque ProjectSection */}
-        {projectsData.map((project) => (
-          <ProjectSection
-            key={project.id} // Utilisez l'ID unique du projet comme clé
-            {...project} // Passe toutes les propriétés de l'objet project au composant ProjectSection
-          />
-        ))}
+       <ProjectList />
         <FAQsSection />
         <FooterSection />
       </main>

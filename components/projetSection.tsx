@@ -1,133 +1,90 @@
-"use client"; // C'est crucial car ce composant utilise des hooks et du state potentiellement.
+"use client";
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github } from "lucide-react";
-
-// Importez TOUTES les icônes de Lucide React qui peuvent être utilisées dans vos qualités
 import {
-  Zap,
-  Cpu,
-  Lock,
-  Sparkles,
-  Globe,
-  Smartphone,
-  Users,
-  LayoutDashboard,
-  Code,
+  ExternalLink, Github, Zap, Cpu, Lock, Sparkles,
+  Globe, Smartphone, Users, LayoutDashboard, Code,
+  FileText, ShieldCheck, BarChart3, Settings, CreditCard,
+  History, Database, Cloud
 } from "lucide-react";
-
-import React from "react"; // Nécessaire pour React.ElementType ou si vous utilisez des hooks
+import React from "react";
 import { Project } from "./types/project";
 
-// Mappage des noms d'icônes (chaînes) aux composants d'icônes réels de Lucide React
 const iconMap: { [key: string]: React.ElementType } = {
-  Zap: Zap,
-  Cpu: Cpu,
-  Lock: Lock,
-  Sparkles: Sparkles,
-  Globe: Globe,
-  Smartphone: Smartphone,
-  Users: Users,
-  LayoutDashboard: LayoutDashboard,
-  Code: Code,
-  Github: Github, // Au cas où vous voudriez utiliser l'icône Github dans les qualités
-  ExternalLink: ExternalLink, // Au cas où vous voudriez l'utiliser dans les qualités
-  // Ajoutez toutes les autres icônes que vous utilisez dans projectsData ici
+  Zap, Cpu, Lock, Sparkles, Globe, Smartphone, Users,
+  LayoutDashboard, Code, Github, ExternalLink,
+  FileText, ShieldCheck, BarChart3, Settings, CreditCard,
+  History, Database, Cloud
 };
 
-export default function ProjectSection({
-  id,
-  title,
-  description,
-  imageLink,
-  imageAlt,
-  imageWidth,
-  imageHeight,
-  repositoriesLink,
-  liveDemoLink,
-  qualities,
-}: Project) {
+export default function ProjectSection(project: Project) {
+  const {
+    title,
+    description,
+    imageLink,
+    imageAlt,
+    imageWidth,
+    imageHeight,
+    repositoriesLink,
+    liveDemoLink,
+    qualities,
+  } = project;
+
   return (
-    <section className="overflow-hidden py-16 md:py-32" id="projects">
-      <div className="mx-auto max-w-5xl space-y-8 px-6 md:space-y-12">
-        {/* Section Titre et Description */}
-        <div className="relative z-10 max-w-2xl mx-auto text-center">
-          <h2 className="text-4xl font-semibold lg:text-5xl text-balance">
+    <div className="py-16 border-b border-border/40 last:border-0">
+      <div className="mx-auto max-w-5xl space-y-8 px-6">
+        {/* Titre et Description */}
+        <div className="max-w-2xl mx-auto text-center">
+          <h3 className="text-3xl font-semibold lg:text-4xl text-balance">
             {title}
-          </h2>
-          <p className="mt-6 text-lg text-foreground/80">{description}</p>
-          {/* Boutons d'action */}
-          <div className="mt-8 flex gap-4 justify-center">
+          </h3>
+          <p className="mt-4 text-lg text-foreground/80">{description}</p>
+
+          <div className="mt-6 flex gap-3 justify-center">
             {repositoriesLink && (
-              <a
-                href={repositoriesLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button variant="outline" className="flex items-center gap-2">
-                  <Github className="size-4" /> Voir le Code
+              <a href={repositoriesLink} target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" size="sm" className="gap-2">
+                  <Github className="size-4" /> Code
                 </Button>
               </a>
             )}
             {liveDemoLink && (
               <a href={liveDemoLink} target="_blank" rel="noopener noreferrer">
-                <Button className="flex items-center gap-2">
-                  <ExternalLink className="size-4" /> Démo Live
+                <Button size="sm" className="gap-2">
+                  <ExternalLink className="size-4" /> Démo
                 </Button>
               </a>
             )}
           </div>
         </div>
 
-        {/* Section Image avec l'effet "3D initial" et "montée/parallèle" au survol */}
-                {/* Nous ajoutons 'group' à ce div pour gérer les effets de survol sur les enfants */}
-                 <div className="relative -mx-4 rounded-3xl p-3 md:-mx-12 lg:col-span-3">
-                    <div className="relative h-full w-full perspective-[1000px] group"> {/* Ajout de perspective et 'group' */}
-                        <div className="
-                            relative w-full h-full
-                            transform-gpu transition-all duration-500 ease-in-out
-                            origin-bottom-left  /* Point d'origine de la transformation */
-                            rotate-x-[20deg]      /* Incliné vers l'avant (couché sur X) */
-                            rotate-y-[5deg]       /* Légère rotation latérale (optionnel) */
-                            translate-z-[-30px]   /* S'enfonce de 30px dans Z */
-                            shadow-lg
-                            rounded-xl overflow-hidden aspect-video
-                            group-hover:rotate-x-0 group-hover:rotate-y-0 group-hover:translate-z-0 /* Retour à plat et au niveau du plan Z */
-                            group-hover:translate-y-[-20px] /* Monte de 20px sur Y */
-                            group-hover:shadow-2xl /* Ombre plus prononcée au survol */
-                        ">
-                            <Image
-                                src={imageLink}
-                                className="absolute inset-0 z-10 object-cover w-full h-full"
-                                alt={imageAlt}
-                                width={imageWidth}
-                                height={imageHeight}
-                            />
-                        </div>
-                    </div>
-                </div>
+        {/* Image avec effet 3D */}
+        <div className="relative rounded-3xl p-2 md:p-4 bg-gradient-to-b from-border/20 to-transparent">
+          <div className="relative perspective-[1000px] group">
+            <div className="relative w-full transform-gpu transition-all duration-500 ease-in-out origin-bottom rotate-x-[10deg] translate-z-[-20px] shadow-xl rounded-xl overflow-hidden aspect-video group-hover:rotate-x-0 group-hover:translate-y-[-10px] group-hover:shadow-2xl">
+              <Image
+                src={imageLink}
+                className="object-fit w-full h-full"
+                alt={imageAlt}
+                width={imageWidth}
+                height={imageHeight}
+              />
+            </div>
+          </div>
+        </div>
 
-        {/* Section des "Qualités" (les 4 éléments grid en bas) */}
-        <div className="relative mx-auto grid grid-cols-2 gap-x-3 gap-y-6 sm:gap-8 lg:grid-cols-4 pt-16 md:pt-24">
+        {/* Qualités */}
+        <div className="grid grid-cols-2 gap-6 lg:grid-cols-4 pt-8">
           {qualities.map((quality, index) => {
-            // Récupérez le composant d'icône réel depuis le mappage
-            const IconComponent = iconMap[quality.icon];
-            if (!IconComponent) {
-              console.warn(
-                `Icône non trouvée pour : ${quality.icon}. Veuillez l'ajouter à iconMap.`
-              );
-              return null; // Ou affichez une icône par défaut
-            }
-
+            const IconComponent = iconMap[quality.icon] || Code;
             return (
-              <div className="space-y-3" key={index}>
-                <div className="flex items-center gap-2">
-                  <IconComponent className="size-4" />{" "}
-                  {/* Rendre le composant d'icône dynamique */}
-                  <h3 className="text-sm font-medium">{quality.name}</h3>
+              <div className="space-y-2" key={index}>
+                <div className="flex items-center gap-2 text-primary">
+                  <IconComponent className="size-4" />
+                  <h4 className="text-sm font-medium text-foreground">{quality.name}</h4>
                 </div>
-                <p className="text-muted-foreground text-sm">
+                <p className="text-muted-foreground text-xs leading-relaxed">
                   {quality.description}
                 </p>
               </div>
@@ -135,6 +92,6 @@ export default function ProjectSection({
           })}
         </div>
       </div>
-    </section>
+    </div>
   );
 }

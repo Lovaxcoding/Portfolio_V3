@@ -1,30 +1,84 @@
-// src/data/projects.ts
-
 import { Project } from "../types/project";
-
-// ATTENTION : NE PLUS IMPORTER LES COMPOSANTS D'ICÔNES DE LUCIDE ICI !
-// Importez uniquement les interfaces si elles sont dans un fichier types séparé
-
 
 export const projectsData: Project[] = [
     {
+        id: 'ikash',
+        category: "Fintech", // Ajout de la catégorie
+        title: "Ikash - Solution de Paiement",
+        description: "Application Fintech facilitant les transactions financières et la gestion de portefeuille numérique.",
+        imageLink: "/Ikash.png",
+        imageAlt: "Capture d'écran de l'application Ikash",
+        imageWidth: 1200,
+        imageHeight: 800,
+        repositoriesLink: "https://github.com/Lovaxcoding/Ikash",
+        liveDemoLink: "https://ikash-app.com",
+        stars: 4,
+        technos: ['React Native', 'TypeScript', 'Firebase'],
+        qualities: [
+            { icon: 'CreditCard', name: "Transactions", description: "Paiements marchands simplifiés." },
+            { icon: 'Lock', name: "Sécurité", description: "Chiffrement de bout en bout." },
+            { icon: 'History', name: "Historique", description: "Suivi complet des flux." },
+            { icon: 'Zap', name: "Instantané", description: "Traitement en temps réel." },
+        ],
+    },
+    {
+        id: 'efacture',
+        category: "SaaS & Gestion", // Ajout de la catégorie
+        title: "Efacture - Gestion de Facturation",
+        description: "Une solution SaaS complète pour la gestion de la facturation d'entreprise.",
+        imageLink: "/Efacture.png",
+        imageAlt: "Capture d'écran de la plateforme Efacture",
+        imageWidth: 1920,
+        imageHeight: 1080,
+        repositoriesLink: "https://github.com/Lovaxcoding/Efacture",
+        liveDemoLink: "https://efacture-demo.com",
+        stars: 5,
+        technos: ['React', 'Node.js', 'PostgreSQL'],
+        qualities: [
+            { icon: 'FileText', name: "PDF", description: "Génération automatique de factures." },
+            { icon: 'ShieldCheck', name: "Conformité", description: "Respect des normes légales." },
+            { icon: 'BarChart3', name: "Analytique", description: "Tableaux de bord financiers." },
+            { icon: 'Settings', name: "Configurable", description: "Taxes et modèles personnalisés." },
+        ],
+    },
+    {
+        id: 'zenith',
+        category: "SaaS & Gestion", // Ajout de la catégorie
+        title: "Zenith - Système de Gestion",
+        description: "Logiciel de gestion interne optimisé pour la performance organisationnelle.",
+        imageLink: "/zenith.png",
+        imageAlt: "Interface du logiciel Zenith",
+        imageWidth: 1920,
+        imageHeight: 1080,
+        repositoriesLink: "https://github.com/Lovaxcoding/Zenith",
+        liveDemoLink: "https://zenith-erp.com",
+        stars: 4,
+        technos: ['Next.js', 'Prisma', 'Docker'],
+        qualities: [
+            { icon: 'LayoutDashboard', name: "Pilotage", description: "Vue d'ensemble de l'activité." },
+            { icon: 'Users', name: "RH", description: "Gestion d'équipe et rôles." },
+            { icon: 'Database', name: "Data", description: "Architecture robuste." },
+            { icon: 'Cloud', name: "Cloud", description: "Déploiement haute disponibilité." },
+        ],
+    },
+    {
         id: 'online-travel',
-        title: "Plateforme de Réservation de Voyages",
-        description: "Une application web complète pour rechercher et réserver des vols, hôtels et forfaits de voyage. Interface utilisateur intuitive et intégration avec des APIs de services de voyage.",
+        category: "Applications Web", // Ajout de la catégorie
+        title: "Réservation de Voyages",
+        description: "Une application web complète pour rechercher et réserver des vols et hôtels.",
         imageLink: "/OnlineTravel.png",
-        imageAlt: "Capture d'écran de la plateforme OnlineTravel",
+        imageAlt: "Capture d'écran OnlineTravel",
         imageWidth: 1920,
         imageHeight: 1080,
         repositoriesLink: "https://github.com/Lovaxcoding/OnlineTravel",
         liveDemoLink: "https://demo.onlinetravel.com",
         stars: 3,
-        technos: ['JavaScript', 'React', 'Node.js', 'Express', 'MongoDB'],
+        technos: ['React', 'Node.js', 'MongoDB'],
         qualities: [
-            // CHANGEMENT ICI : Utilisez les NOMS des icônes comme chaînes de caractères
-            { icon: 'Globe', name: "Recherche Globale", description: "Recherchez des destinations et services de voyage partout dans le monde." },
-            { icon: 'Smartphone', name: "Responsive Design", description: "Expérience utilisateur fluide sur tous les appareils." },
-            { icon: 'Zap', name: "Réservation Rapide", description: "Processus de réservation simplifié et efficace." },
-            { icon: 'Users', name: "Gestion des Utilisateurs", description: "Système d'authentification et de gestion des profils clients." },
+            { icon: 'Globe', name: "Global", description: "Destinations mondiales." },
+            { icon: 'Smartphone', name: "Responsive", description: "Mobile-first design." },
+            { icon: 'Zap', name: "Rapide", description: "Réservation en 3 clics." },
+            { icon: 'Users', name: "Profils", description: "Gestion des comptes clients." },
         ],
     },
     {
@@ -32,6 +86,7 @@ export const projectsData: Project[] = [
         title: "Site Web d'Agence de Tourisme",
         description: "Un site vitrine élégant et informatif pour une agence de tourisme, présentant des destinations, des forfaits et des informations de contact. Optimisé pour la visibilité en ligne.",
         imageLink: "/TravelAgency.png",
+        category: "Applications Web",
         imageAlt: "Capture d'écran du site Tourist_Agency",
         imageWidth: 1600,
         imageHeight: 900,
@@ -51,6 +106,7 @@ export const projectsData: Project[] = [
         title: "Site E-commerce Nike (Front-end)",
         description: "Reproduction fidèle de l'interface utilisateur d'un magasin en ligne Nike. Axé sur le design, l'expérience utilisateur et les fonctionnalités de navigation produit.",
         imageLink: "/Nikestore.png",
+        category: "Applications Web",
         imageAlt: "Capture d'écran du Nike-s-store",
         imageWidth: 1920,
         imageHeight: 1080,
@@ -68,6 +124,7 @@ export const projectsData: Project[] = [
     {
         id: 'password-generator',
         title: "Générateur de Mots de Passe Sécurisés",
+        category: "Applications Web",
         description: "Une application simple et efficace pour générer des mots de passe aléatoires et robustes, personnalisables selon la longueur et les types de caractères souhaités.",
         imageLink: "/Password.jpg",
         imageAlt: "Capture d'écran du Password_Generator",
@@ -89,6 +146,7 @@ export const projectsData: Project[] = [
         title: "Générateur et Lecteur de Codes QR",
         description: "Une application web pour générer des codes QR à partir de texte ou d'URL et lire des codes QR via la caméra de l'appareil. Idéal pour diverses utilisations pratiques.",
         imageLink: "/qirify.png",
+        category: "Applications Web",
         imageAlt: "Capture d'écran de QRify-Reader-Generator",
         imageWidth: 1200,
         imageHeight: 800,
@@ -108,6 +166,7 @@ export const projectsData: Project[] = [
         title: "Application de Gestion de Tâches Collaborative",
         description: "Une application de gestion de tâches qui permet aux utilisateurs de créer, attribuer et suivre des tâches dans un environnement collaboratif, avec des fonctionnalités de suivi de progression.",
         imageLink: "/Taskflow.png",
+        category: "Applications Web",
         imageAlt: "Capture d'écran de TaskFlow",
         imageWidth: 1920,
         imageHeight: 1080,

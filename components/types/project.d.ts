@@ -18,6 +18,7 @@ export interface Project {
     imageAlt: string; // Texte alternatif pour l'image
     imageWidth: number; // Largeur de l'image pour next/image
     imageHeight: number; // Hauteur de l'image pour next/image
+    category: string;
     // imageLinkUpper?: string; // Si vous avez une image "upper" comme mail-upper.png
     // imageLinkBackDark?: string; // Si vous avez une image de fond sombre comme mail-back.png
     // imageLinkBackLight?: string; // Si vous avez une image de fond claire comme mail-back-light.png
